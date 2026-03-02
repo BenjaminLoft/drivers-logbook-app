@@ -3,24 +3,25 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles.css">
-  <title>HGV Work Log</title>
+  <title>Enter Shift</title>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0b1220">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Work Log">
+  <meta name="apple-mobile-web-app-title" content="Drivers Logbook">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
 </head>
 <body>
 
 <nav class="nav">
   <a href="index.html" class="nav-home" aria-label="Home">⌂</a>
+  <div class="nav-title">Drivers Logbook</div>
   <button id="navMenuBtn" class="nav-menu-btn" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Open navigation">☰</button>
   <div id="navMenu" class="nav-menu" hidden>
     <a href="index.html">Home</a>
     <a href="enter-shift.html">Enter Shift</a>
     <a href="summary.html">Summary</a>
-    <a href="shifts.html">All Shifts</a>
+    <a href="shifts.html">Shift Calendar</a>
     <a href="companies.html">Companies</a>
     <a href="vehicles.html">Vehicles</a>
     <a href="settings.html">Settings</a>
@@ -30,7 +31,7 @@
 
 <div class="container">
   <div class="screen">
-    <h1>HGV Work Log</h1>
+    <h1>Enter Shift</h1>
     <h2>Add / Edit Shift</h2>
 
     <label>Company</label>
@@ -60,35 +61,20 @@
     </div>
 
     <div id="shiftVehicleRow">
-      <label>Vehicle</label>
-      <div class="combo-wrap" id="vehicleComboWrap">
-        <input type="text" id="vehicle" placeholder="Registration" autocomplete="off">
-        <div id="vehicleMenu" class="combo-menu" hidden></div>
+      <label>Vehicles</label>
+      <div id="shiftVehicleEntries"></div>
+      <datalist id="assignedVehicleOptions"></datalist>
+      <div style="margin-top:10px;">
+        <button type="button" class="button-secondary" style="width:auto;" onclick="addVehicleEntry()">Add Vehicle</button>
       </div>
     </div>
 
     <div id="shiftTrailerRows">
-      <label>Trailer 1</label>
-      <input type="text" id="trailer1">
-
-      <label>Trailer 2</label>
-      <input type="text" id="trailer2">
-    </div>
-
-    <div id="shiftMileageRows">
-      <div class="grid">
-        <div>
-          <label>Start Mileage</label>
-          <input type="number" id="startMileage" min="0" step="1" placeholder="e.g. 124000">
-        </div>
-        <div>
-          <label>Finish Mileage</label>
-          <input type="number" id="finishMileage" min="0" step="1" placeholder="e.g. 124320">
-        </div>
+      <label>Trailers</label>
+      <div id="shiftTrailerEntries"></div>
+      <div style="margin-top:10px;">
+        <button type="button" class="button-secondary" style="width:auto;" onclick="addTrailerEntry()">Add Trailer</button>
       </div>
-
-      <label>Mileage Done</label>
-      <input type="number" id="mileageDone" min="0" step="1" readonly>
     </div>
 
     <label>Defects/Notes</label>
@@ -107,6 +93,11 @@
     <div class="checkbox-row">
       <input type="checkbox" id="bankHoliday">
       <span>Bank Holiday</span>
+    </div>
+
+    <div class="checkbox-row">
+      <input type="checkbox" id="dayOffInLieu">
+      <span>Add +1 day off in lieu to leave balance</span>
     </div>
 
     <h2 style="margin-top:16px;">Night Out</h2>

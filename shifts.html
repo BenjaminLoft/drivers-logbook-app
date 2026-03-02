@@ -2,25 +2,26 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>All Shifts</title>
+  <title>Shift Calendar</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0b1220">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Work Log">
+  <meta name="apple-mobile-web-app-title" content="Drivers Logbook">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
 </head>
 <body>
 
 <nav class="nav">
   <a href="index.html" class="nav-home" aria-label="Home">⌂</a>
+  <div class="nav-title">Drivers Logbook</div>
   <button id="navMenuBtn" class="nav-menu-btn" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Open navigation">☰</button>
   <div id="navMenu" class="nav-menu" hidden>
     <a href="index.html">Home</a>
     <a href="enter-shift.html">Enter Shift</a>
     <a href="summary.html">Summary</a>
-    <a href="shifts.html">All Shifts</a>
+    <a href="shifts.html">Shift Calendar</a>
     <a href="companies.html">Companies</a>
     <a href="vehicles.html">Vehicles</a>
     <a href="settings.html">Settings</a>
@@ -30,20 +31,10 @@
 
 <div class="container">
 	<div class="screen">
-		<h2>All Shifts</h2>
+		<h2>Shift Calendar</h2>
 
     <div class="calendar-controls">
-      <div class="segmented" role="tablist" aria-label="Shift view period">
-        <button id="shiftTabWeek" type="button" class="seg-btn is-active" role="tab" aria-selected="true" onclick="setShiftsCalendarTab('week')">Week</button>
-        <button id="shiftTabMonth" type="button" class="seg-btn" role="tab" aria-selected="false" onclick="setShiftsCalendarTab('month')">Month</button>
-      </div>
-
-      <div id="shiftWeekPickerWrap">
-        <label for="shiftWeekPicker">Select Week</label>
-        <input type="week" id="shiftWeekPicker">
-      </div>
-
-      <div id="shiftMonthPickerWrap" hidden>
+      <div id="shiftMonthPickerWrap">
         <label for="shiftMonthPicker">Select Month</label>
         <input type="month" id="shiftMonthPicker">
       </div>
